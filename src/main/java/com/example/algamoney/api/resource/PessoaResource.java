@@ -24,7 +24,7 @@ import com.example.algamoney.api.repository.PessoaRepository;
 @RestController
 @RequestMapping("/pessoas")
 public class PessoaResource {
-	//TODO: Parei na Aula 3.12
+	// TODO: Parei na Aula 3.12
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
@@ -32,7 +32,7 @@ public class PessoaResource {
 	public List<Pessoa> listar() {
 		return pessoaRepository.findAll();
 	}
-	
+
 	@Autowired
 	private ApplicationEventPublisher publisher;
 
@@ -43,7 +43,6 @@ public class PessoaResource {
 
 		publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoaSalva.getCodigo()));
 
-		
 		return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
 	}
 
@@ -52,6 +51,5 @@ public class PessoaResource {
 		Pessoa pessoa = pessoaRepository.findOne(codigo);
 		return pessoa != null ? ResponseEntity.ok(pessoa) : ResponseEntity.notFound().build();
 	}
-	
 
 }
