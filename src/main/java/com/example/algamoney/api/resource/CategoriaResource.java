@@ -39,6 +39,8 @@ public class CategoriaResource {
 		Categoria categoriaSalva = categoriaRepository.save(categoria);
 	}
 	
+	//teste de alteração
+	
 	
 	
 }
